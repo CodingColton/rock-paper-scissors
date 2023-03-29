@@ -3,36 +3,31 @@ function getComputerChoice() {
     return options.at(Math.floor(Math.random() * 3));
 }
 function playRound(playerSelection, computerSelection) {
+    if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+        return "Draw! You both chose " + computerSelection;
+    }
     if (playerSelection.toLowerCase() === "rock") {
-        if (computerSelection === "Paper") {
-            return "You Lose! Paper beats Rock.";
-        }
-        else if (computerSelection === "Scissors") {
+        if (computerSelection === "Scissors") {
+            
             return "You Win! Rock beats Scissors.";
         }
-        else {
-            return "Draw! You both chose Rock.";
+        else if (computerSelection === "Paper") {
+            return "You Lose! Paper beats Rock.";
         }
     }
     if (playerSelection.toLowerCase() === "paper") {
-        if (computerSelection === "Paper") {
-            return "Draw! You both chose Paper.";
+        if (computerSelection === "Rock") {
+            return "You Win! Paper beats Rock.";
         }
         else if (computerSelection === "Scissors") {
             return "You Lose! Scissors beats Paper.";
-        }
-        else {
-            return "You Win! Paper beats Rock.";
         }
     }
     if (playerSelection.toLowerCase() === "scissors") {
         if (computerSelection === "Paper") {
             return "You Win! Scissors beats Paper.";
         }
-        else if (computerSelection === "Scissors") {
-            return "Draw! You both chose Scissors.";
-        }
-        else {
+        else if (computerSelection === "Rock") {
             return "You Lose! Rock beats Scissors.";
         }
     }
