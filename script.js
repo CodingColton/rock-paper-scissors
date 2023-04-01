@@ -44,6 +44,17 @@ function updateScoreText() {
     playerScorePara.textContent = "Player: " + playerScore;
     computerScorePara.textContent = "Computer: " + computerScore;
 }
+function checkWinner() {
+    if (playerScore >= 5) {
+        return "Player";
+    }
+    else if (computerScore >= 5) {
+        return "Computer";
+    }
+    else {
+        return "NONE";
+    }
+}
 
 let playerSelection = "";
 
@@ -69,6 +80,11 @@ btnRock.addEventListener('click', () => {
     resultsPara.textContent = playRound(playerSelection, computerSelection);
     resultsContainer.appendChild(resultsPara);
     updateScoreText();
+    if (checkWinner() !== "NONE") {
+        const winnerHeading = document.createElement('h1');
+        winnerHeading.textContent = checkWinner() + ' Won the Game!';
+        resultsContainer.appendChild(winnerHeading);
+    }
 });
 btnPaper.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
@@ -77,6 +93,11 @@ btnPaper.addEventListener('click', () => {
     resultsPara.textContent = playRound(playerSelection, computerSelection);
     resultsContainer.appendChild(resultsPara);
     updateScoreText();
+    if (checkWinner() !== "NONE") {
+        const winnerHeading = document.createElement('h1');
+        winnerHeading.textContent = checkWinner() + ' Won the Game!';
+        resultsContainer.appendChild(winnerHeading);
+    }
 });
 btnScissors.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
@@ -85,4 +106,9 @@ btnScissors.addEventListener('click', () => {
     resultsPara.textContent = playRound(playerSelection, computerSelection);
     resultsContainer.appendChild(resultsPara);
     updateScoreText();
+    if (checkWinner() !== "NONE") {
+        const winnerHeading = document.createElement('h1');
+        winnerHeading.textContent = checkWinner() + ' Won the Game!';
+        resultsContainer.appendChild(winnerHeading);
+    }
 });
