@@ -38,22 +38,30 @@ function game(playFunction) {
 
 let playerSelection = "";
 
-const btnRock = document.querySelector('.btn-rock');
-const btnPaper = document.querySelector('.btn-paper');
-const btnScissors = document.querySelector('.btn-scissors');
+const btnRock = document.querySelector('.BtnRock');
+const btnPaper = document.querySelector('.BtnPaper');
+const btnScissors = document.querySelector('.BtnScissors');
+
+const resultsContainer = document.querySelector("#ResultsContainer");
 
 btnRock.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     playerSelection = "rock";
-    console.log(playRound(playerSelection, computerSelection));
+    const resultsPara = document.createElement('p');
+    resultsPara.textContent = playRound(playerSelection, computerSelection);
+    resultsContainer.appendChild(resultsPara);
 });
 btnPaper.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     playerSelection = "paper";
-    console.log(playRound(playerSelection, computerSelection));
+    const resultsPara = document.createElement('p');
+    resultsPara.textContent = playRound(playerSelection, computerSelection);
+    resultsContainer.appendChild(resultsPara);
 });
 btnScissors.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     playerSelection = "scissors";
-    console.log(playRound(playerSelection, computerSelection));
+    const resultsPara = document.createElement('p');
+    resultsPara.textContent = playRound(playerSelection, computerSelection);
+    resultsContainer.appendChild(resultsPara);
 });
