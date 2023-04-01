@@ -36,9 +36,24 @@ function game(playFunction) {
     return playFunction;
 }
 
-const playerSelection = prompt("Select either 'Rock', 'Paper', or 'Scissors': ");
+let playerSelection = "";
 
-for (i = 0; i < 5; i++) {
-    const computerSelection = getComputerChoice();
-    console.log(game(playRound(playerSelection, computerSelection)));
-}
+const btnRock = document.querySelector('.btn-rock');
+const btnPaper = document.querySelector('.btn-paper');
+const btnScissors = document.querySelector('.btn-scissors');
+
+btnRock.addEventListener('click', () => {
+    let computerSelection = getComputerChoice();
+    playerSelection = "rock";
+    console.log(playRound(playerSelection, computerSelection));
+});
+btnPaper.addEventListener('click', () => {
+    let computerSelection = getComputerChoice();
+    playerSelection = "paper";
+    console.log(playRound(playerSelection, computerSelection));
+});
+btnScissors.addEventListener('click', () => {
+    let computerSelection = getComputerChoice();
+    playerSelection = "scissors";
+    console.log(playRound(playerSelection, computerSelection));
+});
